@@ -1,0 +1,37 @@
+# AWS SAM build artifacts
+.sam/
+.aws-sam/
+build/
+.template/
+
+# AWS Lambda deployment package
+*.zip
+
+# Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Node.js dependencies
+node_modules/
+
+# IDE specific files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Environment files
+.env
+.env.local
+
+# Local AWS credentials (should not be committed)
+.aws/
+
+# Log files
+*.log
+
+# Miscellaneous
+.DS_Store
+*.swp

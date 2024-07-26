@@ -1,0 +1,89 @@
+INSERT INTO `program` (program_id, name, program_type, tuition_fee, description) VALUES
+(1, 'Computer Science', 1, 15000.00, 'A program focused on computer science and software engineering.'),
+(2, 'Mechanical Engineering', 2, 12000.00, 'A program focused on mechanical engineering principles.'),
+(3, 'Business Administration', 3, 10000.00, 'A program focused on business management and administration.');
+INSERT INTO `staff_account` (staff_account_id, email, password, fname, lname, phone, address, senority, citizen_id_number, tax_code, bank_number, profile_scan) VALUES
+(1, 'john.doe@example.com', 'e99a18c428cb38d5f260853678922e03', 'John', 'Doe', '123-456-7890', '123 Elm St', 5, 123456789012, 'US123456789', 12345678901234567890123456789012, 'profile1.png'),
+(2, 'jane.smith@example.com', 'a6d5a0c8d0b9e8b2f989d12fd71e29c0', 'Jane', 'Smith', '987-654-3210', '456 Oak St', 3, NULL, 'US987654321', 98765432109876543210987654321098, 'profile2.png');
+INSERT INTO `department` (department_id, name, establish_date, description, staff_size) VALUES
+(1, 'Engineering', '2000-05-15', 'Department of Engineering', 50),
+(2, 'Business', '2005-08-22', 'Department of Business Administration', 30);
+INSERT INTO `staff_department_junc` (staff_department_junc_id, staff_account_id, department_id, start_at) VALUES
+(1, 1, 1, '2020-01-10'),
+(2, 2, 2, '2021-03-15');
+INSERT INTO `student_account` (student_account_id, email, password, fname, lname, phone, address, program_id, admission_date, graduate_status, profile_scan) VALUES
+(1, 'alice.jones@example.com', '9e107d9d372bb6826bd81d3542a419d6', 'Alice', 'Jones', '321-654-9870', '789 Pine St', 1, '2022-08-01', FALSE, 'profile3.png'),
+(2, 'bob.brown@example.com', 'd3b07384d113edec49eaa6238ad5ff00', 'Bob', 'Brown', '654-321-0987', '101 Maple St', 2, '2023-01-15', FALSE, 'profile4.png');
+INSERT INTO `course` (course_id, name, staff_account_id, description, duration_unit, semeter, year) VALUES
+(1, 'Introduction to Programming', 1, 'Basic course on programming concepts.', 1, 1, '2024'),
+(2, 'Advanced Mechanical Engineering', 2, 'In-depth course on mechanical engineering topics.', 1, 2, '2024');
+INSERT INTO `enrollment` (enrollment_id, student_account_id, course_id, semeter, year) VALUES
+(1, 1, 1, 1, '2024'),
+(2, 2, 2, 2, '2024');
+INSERT INTO `submission` (submission_id, course_id, submission_type, assignment_id, exam_id, file) VALUES
+(1, 1, 1, NULL, NULL, 'submission1.pdf'),
+(2, 2, 2, 1, NULL, 'submission2.pdf');
+INSERT INTO `exam` (exam_id, file, result) VALUES
+(1, 'exam1.pdf', 'Pass'),
+(2, 'exam2.pdf', 'Fail');
+INSERT INTO `assignment` (assignment_id, file, result) VALUES
+(1, 'assignment1.pdf', 'A'),
+(2, 'assignment2.pdf', 'B');
+INSERT INTO `grade` (grade_id, grade, student_account_id, submission_id) VALUES
+(1, 85, 1, 1),
+(2, 90, 2, 2);
+INSERT INTO `schedule` (schedule_id, slot, course_id, start_time, end_time) VALUES
+(1, 1, 1, '2024-08-01 09:00:00', '2024-08-01 12:00:00'),
+(2, 2, 2, '2024-08-02 14:00:00', '2024-08-02 17:00:00');
+INSERT INTO `form` (form_id, form_type, staff_account_id, student_account_id, form, form_scan) VALUES
+(1, 1, 1, NULL, 'Form A', 'form1_scan.png'),
+(2, 2, NULL, 1, 'Form B', 'form2_scan.png');
+INSERT INTO `feedback` (feedback_id, department_id, email, feedback, attack_file) VALUES
+(1, 1, 'feedback@example.com', 'Great service.', 'attack_file1.png'),
+(2, 2, NULL, 'Needs improvement.', NULL);
+INSERT INTO `publication` (publication_id, publication_type, title, expected_budget, actual_budget) VALUES
+(1, 1, 'Research on AI', 50000.00, 48000.00),
+(2, 2, 'Study on Mechanical Systems', 30000.00, 29000.00);
+INSERT INTO `publication_researcher_junc` (publication_researcher_junc_id, publication_id, staff_account_id) VALUES
+(1, 1, 1),
+(2, 2, 2);
+INSERT INTO `investor` (investor_id, investor_type, name) VALUES
+(1, 1, 'John Investor'),
+(2, 2, 'Jane Investor');
+INSERT INTO `investor_publication_junc` (investor_publication_junc_id, investor_id, publication_id, contribution_amount) VALUES
+(1, 1, 1, 20000.00),
+(2, 2, 2, 15000.00);
+INSERT INTO `event` (event_id, expected_budget, actual_budget, description) VALUES
+(1, 10000.00, 9500.00, 'Annual Research Conference'),
+(2, 5000.00, 4800.00, 'Department Meeting');
+INSERT INTO `service` (service_id, service_type, department_id, description) VALUES
+(1, 1, 1, 'Technical Support'),
+(2, 2, 2, 'Administrative Assistance');
+INSERT INTO `document` (document_id, document_type, name, file, create_date) VALUES
+(1, 1, 'Course Syllabus', 'syllabus1.pdf', '2024-07-01 10:00:00'),
+(2, 2, 'Faculty Handbook', 'handbook1.pdf', '2024-07-02 11:00:00');
+INSERT INTO `course_document_junc` (course_document_junc_id, course_id, document_id) VALUES
+(1, 1, 1),
+(2, 2, 2);
+INSERT INTO `facility` (facility_id, name, code, department_id, create_date) VALUES
+(1, 'Library', 'LIB001', 1, '2024-07-05 09:00:00'),
+(2, 'Laboratory', 'LAB001', 2, '2024-07-06 10:00:00');
+INSERT INTO `student_club` (student_club_id, name, member_size, create_date) VALUES
+(1, 'Science Club', 20, '2024-07-10 10:00:00'),
+(2, 'Math Club', 15, '2024-07-11 11:00:00');
+INSERT INTO `event_club_dept_junc` (event_stud_dept_junc_id, event_id, student_club_id, department_id) VALUES
+(1, 1, 1, 1),
+(2, 2, 2, 2);
+INSERT INTO `student_club_junc` (student_club_junc_id, student_club_id, student_account_id) VALUES
+(1, 1, 1),
+(2, 2, 2);
+INSERT INTO `tuition_fee` (tuition_fee_id, student_account_id, course_id, amount, due_date, payment_status, payment_date, semester, year) VALUES
+(1, 1, 1, 1500.00, '2024-08-01', 0, NULL, 1, 2024),
+(2, 2, 2, 1200.00, '2024-09-01', 1, '2024-08-15', 2, 2024);
+INSERT INTO `transaction` (Transaction_id, transaction_type, create_date, description, student_account_id, staff_account_id, payroll_id, scholarship_id) VALUES
+(1, 1, '2024-07-20 09:00:00', 'Payment for course fees', 1, NULL, NULL, NULL),
+(2, 2, '2024-07-21 10:00:00', 'Scholarship award', NULL, NULL, NULL, 1);
+INSERT INTO `scholarship` (scholarship_id, scholarship_type, student_account_id, amount, award_date, description) VALUES
+(1, 1, 1, 2000.00, '2024-07-20', 'Merit-based scholarship for excellence.');
+INSERT INTO `payroll` (payroll_id, staff_account_id, amount, pay_date, period_start, period_end, description) VALUES
+(1, 1, 3000.00, '2024-07-31', '2024-07-01', '2024-07-31', 'Monthly salary.');
