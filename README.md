@@ -7,6 +7,7 @@ This project is an AWS Lambda function for managing product inventory using Dyna
 ...
 
 ## API Endpoints
+Path: https://8spl5nlkva.execute-api.us-east-1.amazonaws.com/dev
 
 - `GET /status`: Check service status
 - `GET /products`: Get all products
